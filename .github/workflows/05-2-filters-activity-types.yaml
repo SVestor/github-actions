@@ -1,0 +1,21 @@
+name: 05-2-event-filters-and-activity-types
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - closed
+  workflow_dispatch:
+
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Filters and activity types
+        run: |
+          echo "Running whenever a PR is closed and base branch is main"
+          echo "The PR head ref is ${{ github.event.pull_request.head.ref }}"
+          echo "The PR base ref is ${{ github.event.pull_request.base.ref }}"
+          echo "The PR title is ${{ github.event.pull_request.title }}"
+
